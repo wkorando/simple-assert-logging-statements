@@ -1,0 +1,8 @@
+<configuration>
+	<appender name="static-appender"
+		class="com.ibm.developer.StaticLogbackAppender" />
+
+	<root level="trace">
+		<appender-ref ref="static-appender" />
+	</root>
+</configuration>
