@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Test;
 import com.ibm.developer.LogProducingService;
 
 public class TestLogProducingService {
-	LogProducingService service = new LogProducingService();
+	private LogProducingService service = new LogProducingService();
 
 	@BeforeEach
 	public void clearLoggingStatements() {

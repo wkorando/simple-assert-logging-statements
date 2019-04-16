@@ -16,23 +16,18 @@ import ch.qos.logback.core.AppenderBase;
  *
  */
 public class StaticLogbackAppender extends AppenderBase<LoggingEvent> {
-	static ThreadLocal<List<LoggingEvent>> threadLocal = new ThreadLocal<>();
+	static List<LoggingEvent> events = new ArrayList<>();
 
 	@Override
 	public void append(LoggingEvent e) {
-		List<LoggingEvent> events = threadLocal.get();
-		if (events == null) {
-			events = new ArrayList<>();
-			threadLocal.set(events);
-		}
 		events.add(e);
 	}
 
 	public static List<LoggingEvent> getEvents() {
-		return threadLocal.get();
+		return events;
 	}
 
 	public static void clearEvents() {
-		threadLocal.remove();
+		events.clear();
 	}
 }
